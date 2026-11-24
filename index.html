@@ -79,6 +79,7 @@
 const links={kick:'https://kick.com/s5b',youtube:'https://www.youtube.com/@s5b1',instagram:'https://www.instagram.com/s5b_x/',x:'https://x.com/S5B_Q',discord:'https://discord.com/invite/rtrp',whatsapp:'https://whatsapp.com/channel/0029VacqnoE0rGiJ0w8MpO3k'};
 const logo='https://files.kick.com/images/user/5543715/profile_image/conversion/0f18fe5a-ccaf-4fc9-b6b4-fb6d953c7952-fullsize.webp';
 const videos=[
+{title:'صورة احتفالية نشرها صخب على X',image:'https://pbs.twimg.com/media/G-fvW_0WAAAaP-7.jpg',url:'https://x.com/S5B_Q'},
 {title:'صخب | S5B — من قناة يوتيوب',id:'fjhfp0G27XI'},
 {title:'S5B 12',id:'rdGL1LNWr_0'},
 {title:'لقطات ومحتوى صخب',id:'Fr-t0FqGkLg'},
@@ -94,7 +95,7 @@ function openApp(app){
  const names={kick:'Kick',youtube:'YouTube',instagram:'Instagram',x:'X',photos:'الصور',about:'عن صخب',discord:'Discord',whatsapp:'WhatsApp'};
  title.textContent=names[app]||'التطبيق';
  if(app==='photos'){
-  html='<div class="gallery">'+videos.map(v=>'<a class="photo" href="'+(v.id?'https://www.youtube.com/watch?v='+v.id:'https://www.youtube.com/@s5b1')+'" target="_blank" rel="noopener"><img loading="lazy" src="'+(v.id?'https://img.youtube.com/vi/'+v.id+'/hqdefault.jpg':logo)+'" alt="'+v.title+'"><span>'+v.title+'</span></a>').join('')+'</div><p class="note">معرض لصور مصغّرة ولقطات من محتوى قناة صخب العلني. اضغط على أي صورة لفتح المقطع الأصلي.</p>';
+  html='<div class="gallery">'+videos.map(v=>'<a class="photo" href="'+(v.url||(v.id?'https://www.youtube.com/watch?v='+v.id:'https://www.youtube.com/@s5b1'))+'" target="_blank" rel="noopener"><img loading="lazy" src="'+(v.image||(v.id?'https://img.youtube.com/vi/'+v.id+'/hqdefault.jpg':logo))+'" alt="'+v.title+'"><span>'+v.title+'</span></a>').join('')+'</div><p class="note">معرض لصور مصغّرة ولقطات من محتوى قناة صخب العلني. اضغط على أي صورة لفتح المقطع الأصلي.</p>';
  }else if(app==='about'){
   html='<div class="profile-card"><img src="'+logo+'" alt="شعار صخب"><div><h2>صخب · S5B</h2><p>ستريمر وصانع محتوى</p><p>قناته على Kick وYouTube</p></div></div><div class="live-card" style="margin-top:15px"><h3>مرحباً بك في هاتف صخب</h3><p>واجهة تجريبية لمحاكاة آيفون بطابع S5B. الحسابات المرتبطة هنا هي الروابط العامة المنشورة لصاحب القناة.</p></div>';
  }else{
