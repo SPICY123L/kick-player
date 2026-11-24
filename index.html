@@ -36,6 +36,21 @@
 .toast{position:absolute;z-index:12;bottom:100px;left:50%;transform:translateX(-50%);background:#111b2b;color:#fff;border:1px solid #ffffff24;border-radius:30px;padding:8px 14px;font-size:11px;white-space:nowrap;opacity:0;transition:.2s;pointer-events:none}.toast.show{opacity:1}
 @media(max-height:700px){.phone{height:calc(100svh - 42px);min-height:0;border-radius:40px}.home{padding-top:58px}.grid{gap:14px 10px;margin-top:17px}.app-icon{width:52px;height:52px;border-radius:16px}.dock{height:70px;bottom:19px}.clock{font-size:58px;margin-top:20px}}
 @media(min-width:700px){.phone{height:820px}}
+
+/* Functional iPhone-style app layer */
+.home{overflow:auto;padding-bottom:125px}.grid{padding-bottom:12px}.app-icon{font-family:Arial,sans-serif;font-weight:800}
+.appview{background:#f4f5f9}.appbar{background:#f4f5f9}.appcontent{padding:14px}
+.app-tile{background:#fff;border:1px solid #e8eaf0;border-radius:18px;padding:14px;margin-bottom:10px;color:#18202d}
+.app-tile h3{margin:0 0 7px;font-size:15px}.app-tile p{font-size:12px;color:#697386;line-height:1.7;margin:4px 0}
+.calc{background:#17191f;border-radius:24px;padding:14px;color:#fff;min-height:520px;display:flex;flex-direction:column}.calc-display{height:130px;display:flex;flex-direction:column;justify-content:end;align-items:flex-end;padding:8px 6px 18px;overflow:hidden}.calc-expression{color:#aeb4c0;font-size:18px;min-height:26px;direction:ltr}.calc-result{font-size:46px;direction:ltr;max-width:100%;overflow:hidden}.calc-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;direction:ltr}.calc-keys button{border:0;border-radius:50%;aspect-ratio:1;background:#34363d;color:#fff;font-size:22px;font-weight:600}.calc-keys button.op{background:#ff9f0a}.calc-keys button.util{background:#a5a5a8;color:#151515}.calc-keys button.zero{grid-column:span 2;aspect-ratio:auto;border-radius:40px;text-align:left;padding-left:27px}
+.browserbar{display:flex;gap:7px}.browserbar input{min-width:0;flex:1;border:1px solid #dfe3eb;border-radius:13px;padding:11px;font:13px Cairo;direction:ltr}.primary{border:0;border-radius:13px;background:#168cff;color:white;font:700 12px Cairo;padding:10px 14px}.secondary{border:0;border-radius:12px;background:#edf1f7;color:#253044;font:700 12px Cairo;padding:9px 12px}
+.xprofile{background:#fff;border:1px solid #e5e7ec;border-radius:17px;overflow:hidden;color:#111}.xcover{height:105px;background:linear-gradient(120deg,#111827,#254b72,#05070d)}.xuser{padding:0 15px 15px}.xavatar{width:70px;height:70px;border-radius:50%;border:4px solid white;object-fit:cover;margin-top:-34px}.xuser h2{margin:3px 0 0;font-size:18px}.xuser p{font-size:12px;color:#667085;margin:2px 0}.xstats{display:flex;gap:18px;font-size:11px;color:#667085;margin:10px 0}.xpost{border-top:1px solid #edf0f3;padding:14px;font-size:12px;line-height:1.7}.xpost img{width:100%;border-radius:13px;margin-top:8px}
+.setting-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid #edf0f3;font-size:13px}.switch{width:44px;height:25px;border:0;border-radius:20px;background:#c8ced8;padding:3px}.switch:after{content:'';display:block;width:19px;height:19px;background:white;border-radius:50%;transition:.2s}.switch.on{background:#20c66b}.switch.on:after{transform:translateX(-19px)}
+.clock-big{text-align:center;font-size:53px;font-weight:300;direction:ltr;padding:28px 0 4px}.clock-date{text-align:center;color:#697386;font-size:13px;margin-bottom:20px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.calendar-grid span{padding:8px 0;font-size:11px;border-radius:9px}.calendar-grid .today{background:#168cff;color:white;font-weight:800}
+.notes-area{width:100%;min-height:280px;border:0;outline:0;resize:vertical;background:#fff;font:15px/1.9 Cairo;color:#202635}.phone-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:270px;margin:20px auto}.phone-keypad button{border:0;border-radius:50%;aspect-ratio:1;background:#e8ebf1;font-size:22px;color:#18202d}.phone-number{text-align:center;font-size:27px;direction:ltr;padding:15px}
+.camera-box{background:#10151f;border-radius:18px;min-height:230px;display:grid;place-items:center;color:white;overflow:hidden}.camera-box video{width:100%;height:230px;object-fit:cover}
+@media(max-height:700px){.calc{min-height:430px}.calc-display{height:95px}.calc-keys{gap:6px}.calc-keys button{font-size:19px}}
+
 </style>
 </head>
 <body>
@@ -61,6 +76,14 @@
 <button class="app" data-app="about"><span class="app-icon" style="background:linear-gradient(145deg,#293d5d,#101827)">ⓘ</span><span>عن صخب</span></button>
 <button class="app" data-app="discord"><span class="app-icon" style="background:#5865f2">◉</span><span>Discord</span></button>
 <button class="app" data-app="whatsapp"><span class="app-icon" style="background:#20c96b">◔</span><span>WhatsApp</span></button>
+<button class="app" data-app="calculator"><span class="app-icon" style="background:#292b31">＋</span><span>الحاسبة</span></button>
+<button class="app" data-app="settings"><span class="app-icon" style="background:linear-gradient(145deg,#bfc7d2,#657181)">⚙</span><span>الإعدادات</span></button>
+<button class="app" data-app="safari"><span class="app-icon" style="background:linear-gradient(145deg,#50c9ff,#0875d1)">🧭</span><span>Safari</span></button>
+<button class="app" data-app="clock"><span class="app-icon" style="background:#16191f">◷</span><span>الساعة</span></button>
+<button class="app" data-app="calendar"><span class="app-icon" style="background:#fff;color:#e5484d;font-size:15px">24</span><span>التقويم</span></button>
+<button class="app" data-app="notes"><span class="app-icon" style="background:linear-gradient(#fff4a8,#ffdb50);color:#554600">▤</span><span>الملاحظات</span></button>
+<button class="app" data-app="phone"><span class="app-icon" style="background:#24c66a">☎</span><span>الهاتف</span></button>
+<button class="app" data-app="camera"><span class="app-icon" style="background:linear-gradient(145deg,#b8c2ce,#566273)">📷</span><span>الكاميرا</span></button>
 </div>
 <div class="dock">
 <button class="app" data-app="kick"><span class="app-icon kick">K</span></button>
@@ -78,31 +101,51 @@
 <script>
 const links={kick:'https://kick.com/s5b',youtube:'https://www.youtube.com/@s5b1',instagram:'https://www.instagram.com/s5b_x/',x:'https://x.com/S5B_Q',discord:'https://discord.com/invite/rtrp',whatsapp:'https://whatsapp.com/channel/0029VacqnoE0rGiJ0w8MpO3k'};
 const logo='https://files.kick.com/images/user/5543715/profile_image/conversion/0f18fe5a-ccaf-4fc9-b6b4-fb6d953c7952-fullsize.webp';
-const videos=[
-{title:'صورة احتفالية نشرها صخب على X',image:'https://pbs.twimg.com/media/G-fvW_0WAAAaP-7.jpg',url:'https://x.com/S5B_Q'},
-{title:'صخب | S5B — من قناة يوتيوب',id:'fjhfp0G27XI'},
-{title:'S5B 12',id:'rdGL1LNWr_0'},
-{title:'لقطات ومحتوى صخب',id:'Fr-t0FqGkLg'},
-{title:'مقاطع من قناة صخب',id:'',fallback:logo}
-];
 const lock=document.getElementById('lock'),home=document.getElementById('home'),view=document.getElementById('appview'),content=document.getElementById('appContent'),title=document.getElementById('appTitle'),toast=document.getElementById('toast');
+const names={kick:'Kick',youtube:'YouTube',instagram:'Instagram',x:'X',photos:'الصور',about:'عن صخب',discord:'Discord',whatsapp:'WhatsApp',calculator:'الحاسبة',settings:'الإعدادات',safari:'Safari',clock:'الساعة',calendar:'التقويم',notes:'الملاحظات',phone:'الهاتف',camera:'الكاميرا'};
 function unlock(){lock.classList.add('hide');home.classList.add('show')}
 document.getElementById('unlock').addEventListener('click',unlock);
 document.getElementById('homeIndicator').addEventListener('click',()=>{view.classList.remove('open');lock.classList.add('hide');home.classList.add('show')});
 function showToast(s){toast.textContent=s;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1700)}
+function shell(inner){return '<div>'+inner+'</div>'}
+function external(app){return '<div class="xprofile"><div class="xcover"></div><div class="xuser"><img class="xavatar" src="'+logo+'"><h2>صخب <span style="color:#168cff">✓</span></h2><p>@S5B_Q · صانع محتوى</p><p>الحساب الرسمي لصخب على '+names[app]+'</p><div class="xstats"><span><b>—</b> يتابع</span><span><b>—</b> متابعون</span></div><a class="open-live" style="background:#111" href="'+links[app]+'" target="_blank" rel="noopener">فتح الحساب الأصلي ↗</a></div></div><div class="app-tile" style="margin-top:12px"><h3>ملاحظة</h3><p>هذه معاينة داخل المحاكي. المحتوى الكامل وتسجيل الدخول والرسائل تعمل على الموقع أو التطبيق الرسمي.</p></div>'}
+function calculator(){return '<div class="calc"><div class="calc-display"><div class="calc-expression" id="calcExpr"></div><div class="calc-result" id="calcResult">0</div></div><div class="calc-keys">'+['AC','±','%','÷','7','8','9','×','4','5','6','−','1','2','3','+','0','.','=',''].map((x,i)=>x?'<button class="'+([0,1,2].includes(i)?'util ':'')+([3,7,11,15,18].includes(i)?'op ':'')+(x==='0'?'zero':'')+'" data-key="'+x+'">'+x+'</button>':'').join('')+'</div></div>'}
+function evalMath(input){
+ const s=input.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/%/g,'/100');
+ let i=0;function ws(){while(s[i]===' ')i++}
+ function expr(){let v=term();while(true){ws();if(s[i]==='+'){i++;v+=term()}else if(s[i]==='-'){i++;v-=term()}else return v}}
+ function term(){let v=factor();while(true){ws();if(s[i]==='*'){i++;v*=factor()}else if(s[i]==='/'){i++;const d=factor();if(!d)throw Error();v/=d}else return v}}
+ function factor(){ws();if(s[i]==='+'){i++;return factor()}if(s[i]==='-'){i++;return -factor()}if(s[i]==='('){i++;const v=expr();ws();if(s[i++]!==')')throw Error();return v}let start=i;while(/[0-9.]/.test(s[i]||'')&&i<s.length)i++;if(start===i)throw Error();const n=Number(s.slice(start,i));if(!Number.isFinite(n))throw Error();return n}
+ const v=expr();ws();if(i!==s.length||!Number.isFinite(v))throw Error();return v;
+}
 function openApp(app){
- let html='';
- const names={kick:'Kick',youtube:'YouTube',instagram:'Instagram',x:'X',photos:'الصور',about:'عن صخب',discord:'Discord',whatsapp:'WhatsApp'};
- title.textContent=names[app]||'التطبيق';
- if(app==='photos'){
-  html='<div class="gallery">'+videos.map(v=>'<a class="photo" href="'+(v.url||(v.id?'https://www.youtube.com/watch?v='+v.id:'https://www.youtube.com/@s5b1'))+'" target="_blank" rel="noopener"><img loading="lazy" src="'+(v.image||(v.id?'https://img.youtube.com/vi/'+v.id+'/hqdefault.jpg':logo))+'" alt="'+v.title+'"><span>'+v.title+'</span></a>').join('')+'</div><p class="note">معرض لصور مصغّرة ولقطات من محتوى قناة صخب العلني. اضغط على أي صورة لفتح المقطع الأصلي.</p>';
- }else if(app==='about'){
-  html='<div class="profile-card"><img src="'+logo+'" alt="شعار صخب"><div><h2>صخب · S5B</h2><p>ستريمر وصانع محتوى</p><p>قناته على Kick وYouTube</p></div></div><div class="live-card" style="margin-top:15px"><h3>مرحباً بك في هاتف صخب</h3><p>واجهة تجريبية لمحاكاة آيفون بطابع S5B. الحسابات المرتبطة هنا هي الروابط العامة المنشورة لصاحب القناة.</p></div>';
- }else{
-  const desc={kick:'افتح قناة صخب على Kick لمشاهدة البثوث والمقاطع المتاحة.',youtube:'افتح قناة صخب الرسمية على YouTube لمشاهدة الفيديوهات.',instagram:'افتح حساب صخب على Instagram.',x:'تابع حساب صخب على منصة X.',discord:'رابط مجتمع صخب على Discord.',whatsapp:'قناة واتساب العامة المرتبطة بحساب صخب.'};
-  html='<div class="profile-card"><img src="'+logo+'" alt="شعار صخب"><div><h2>صخب · S5B</h2><p>'+desc[app]+'</p></div></div><a class="open-live" href="'+links[app]+'" target="_blank" rel="noopener">فتح '+names[app]+' ↗</a>';
+ title.textContent=names[app]||'التطبيق';let html='';
+ if(['kick','youtube','instagram','x','discord','whatsapp'].includes(app)) html=external(app);
+ else if(app==='calculator') html=calculator();
+ else if(app==='safari') html='<div class="app-tile"><h3>Safari</h3><p>اكتب عنوان موقع لفتحه في المتصفح.</p><div class="browserbar"><input id="webAddress" value="https://x.com/S5B_Q" placeholder="https://example.com"><button class="primary" id="goWeb">اذهب</button></div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:12px">'+['x','kick','youtube','instagram'].map(k=>'<button class="secondary" data-site="'+k+'">'+names[k]+'</button>').join('')+'</div></div><div class="app-tile"><p>لأسباب الأمان والخصوصية، المواقع الخارجية تفتح في تبويب المتصفح خارج المحاكي.</p></div>';
+ else if(app==='settings') html='<div class="app-tile"><h3>هاتف صخب</h3><p>إعدادات المحاكي</p><div class="setting-row">الوضع الداكن <button class="switch on" id="darkSwitch"></button></div><div class="setting-row">خلفية زرقاء <button class="switch on" id="wallSwitch"></button></div><div class="setting-row">اسم الجهاز <b>iPhone — S5B</b></div><div class="setting-row">إصدار الواجهة <b>iOS-style Web 1.0</b></div></div><div class="app-tile"><p>هذه الإعدادات تغيّر شكل المحاكي فقط ولا تغيّر إعدادات هاتفك الحقيقي.</p></div>';
+ else if(app==='clock') html='<div class="app-tile"><div class="clock-big" id="clockApp">00:00:00</div><div class="clock-date" id="clockAppDate"></div><div style="display:flex;justify-content:center;gap:9px"><button class="primary" id="stopStart">ابدأ المؤقت</button><button class="secondary" id="stopReset">إعادة</button></div><p style="text-align:center;margin-top:15px">ساعة المحاكي ومؤقّت إيقاف حقيقي داخل الصفحة</p></div>';
+ else if(app==='calendar'){const d=new Date(),first=new Date(d.getFullYear(),d.getMonth(),1).getDay(),days=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();html='<div class="app-tile"><h3 style="text-align:center">'+d.toLocaleDateString('ar',{month:'long',year:'numeric'})+'</h3><div class="calendar-grid">'+['أح','إث','ثل','أر','خم','جم','سب'].map(x=>'<span style="color:#81899a;font-weight:800">'+x+'</span>').join('')+Array(first).fill('<span></span>').join('')+Array.from({length:days},(_,i)=>'<span class="'+(i+1===d.getDate()?'today':'')+'">'+(i+1)+'</span>').join('')+'</div></div><div class="app-tile"><h3>لا توجد أحداث</h3><p>هذا تقويم محلي للعرض. إضافة ومزامنة الأحداث غير متصلة بحساب تقويم خارجي.</p></div>'}
+ else if(app==='notes') html='<div class="app-tile"><h3>ملاحظاتي</h3><textarea class="notes-area" id="notesArea" placeholder="اكتب ملاحظاتك هنا..."></textarea><p id="noteStatus">تُحفظ الملاحظات على هذا المتصفح تلقائياً.</p></div>';
+ else if(app==='phone') html='<div class="app-tile"><div class="phone-number" id="phoneNumber"></div><div class="phone-keypad">'+['1','2','3','4','5','6','7','8','9','*','0','#'].map(x=>'<button data-digit="'+x+'">'+x+'</button>').join('')+'</div><div style="text-align:center"><button class="primary" id="callBtn" style="background:#20bd68;border-radius:30px">☎ اتصال تجريبي</button> <button class="secondary" id="clearNumber">مسح</button></div><p style="text-align:center">المكالمات الحقيقية غير متاحة من موقع ويب.</p></div>';
+ else if(app==='camera') html='<div class="app-tile"><h3>الكاميرا</h3><div class="camera-box" id="cameraBox">اضغط تشغيل للسماح بالكاميرا</div><button class="primary" id="startCamera" style="margin-top:12px">تشغيل الكاميرا</button><p>يتطلب إذن الكاميرا من المتصفح واتصالاً آمناً.</p></div>';
+ else if(app==='photos') html='<div class="app-tile"><h3>معرض صخب</h3><p>صور ومقاطع عامة من حساباته.</p><div class="gallery"><a class="photo" href="https://x.com/S5B_Q" target="_blank"><img src="https://pbs.twimg.com/media/G-fvW_0WAAAaP-7.jpg"><span>من حساب X</span></a><a class="photo" href="https://www.youtube.com/@s5b1" target="_blank"><img src="https://img.youtube.com/vi/fjhfp0G27XI/hqdefault.jpg"><span>من يوتيوب</span></a><a class="photo" href="https://www.youtube.com/@s5b1" target="_blank"><img src="https://img.youtube.com/vi/rdGL1LNWr_0/hqdefault.jpg"><span>مقطع S5B</span></a><a class="photo" href="https://kick.com/s5b" target="_blank"><img src="'+logo+'"><span>قناة Kick</span></a></div><label class="primary" style="display:inline-block;margin-top:14px;cursor:pointer">إضافة صورة من جهازك <input id="photoUpload" type="file" accept="image/*" hidden></label><div id="localPhotos" class="gallery" style="margin-top:10px"></div></div>';
+ else if(app==='about') html='<div class="profile-card"><img src="'+logo+'"><div><h2>صخب · S5B</h2><p>ستريمر وصانع محتوى</p></div></div>';
+ content.innerHTML=shell(html);view.classList.add('open');wireApp(app);
+}
+function wireApp(app){
+ if(app==='calculator'){
+  let expr='',display='0';const result=document.getElementById('calcResult'),line=document.getElementById('calcExpr');
+  function render(){line.textContent=expr;result.textContent=display}
+  document.querySelectorAll('[data-key]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.key;if(k==='AC'){expr='';display='0'}else if(k==='±'){if(display!=='0')display=String(-Number(display));expr=display}else if(k==='='){try{display=String(Number(evalMath(expr||display).toPrecision(11)));expr=display}catch{display='خطأ'}}else{if(display==='خطأ')display='0';if(['+','−','×','÷'].includes(k)){expr+=k;display=k}else if(k==='%'){expr+='%';display='%'}else{expr+=k;display=expr.slice(-12)}}render()}));render();
  }
- content.innerHTML=html;view.classList.add('open');
+ if(app==='safari'){document.getElementById('goWeb').onclick=()=>{let u=document.getElementById('webAddress').value.trim();if(!/^https?:\/\//i.test(u))u='https://'+u;window.open(u,'_blank','noopener')};document.querySelectorAll('[data-site]').forEach(b=>b.onclick=()=>window.open(links[b.dataset.site],'_blank','noopener'))}
+ if(app==='settings'){document.getElementById('darkSwitch').onclick=e=>e.currentTarget.classList.toggle('on');document.getElementById('wallSwitch').onclick=e=>{e.currentTarget.classList.toggle('on');document.querySelector('.wallpaper').style.background=e.currentTarget.classList.contains('on')?'radial-gradient(circle at 50% 35%,#163a66,#0b1730 45%,#080c17)':'radial-gradient(circle at 50% 35%,#35502d,#1d2a1b 45%,#0b100b)'}}
+ if(app==='clock'){let seconds=0,run=false,timer=null;const draw=()=>{document.getElementById('clockApp').textContent=new Date().toLocaleTimeString('en-GB');document.getElementById('clockAppDate').textContent=new Date().toLocaleDateString('ar',{weekday:'long',day:'numeric',month:'long'})};draw();let clockInterval=setInterval(()=>{if(!document.getElementById('clockApp'))clearInterval(clockInterval);else draw()},1000);document.getElementById('stopStart').onclick=e=>{run=!run;e.currentTarget.textContent=run?'إيقاف المؤقت':'استئناف المؤقت';if(run)timer=setInterval(()=>{seconds++;if(document.getElementById('clockApp'))document.getElementById('clockApp').textContent=Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0')},1000);else clearInterval(timer)};document.getElementById('stopReset').onclick=()=>{seconds=0;run=false;clearInterval(timer);document.getElementById('stopStart').textContent='ابدأ المؤقت';document.getElementById('clockApp').textContent='00:00'}}
+ if(app==='notes'){const area=document.getElementById('notesArea');area.value=localStorage.getItem('s5b-notes')||'';area.addEventListener('input',()=>{localStorage.setItem('s5b-notes',area.value);document.getElementById('noteStatus').textContent='تم الحفظ تلقائياً ✓'})}
+ if(app==='phone'){let n='';const out=document.getElementById('phoneNumber');document.querySelectorAll('[data-digit]').forEach(b=>b.onclick=()=>{n+=b.dataset.digit;out.textContent=n});document.getElementById('clearNumber').onclick=()=>{n='';out.textContent=''};document.getElementById('callBtn').onclick=()=>showToast('هذه مكالمة تجريبية فقط')}
+ if(app==='camera'){document.getElementById('startCamera').onclick=async()=>{try{const stream=await navigator.mediaDevices.getUserMedia({video:true});const v=document.createElement('video');v.autoplay=true;v.playsInline=true;v.srcObject=stream;const box=document.getElementById('cameraBox');box.textContent='';box.appendChild(v);document.getElementById('startCamera').textContent='الكاميرا تعمل'}catch(e){showToast('تعذر فتح الكاميرا أو لم يتم منح الإذن')}}}
+ if(app==='photos'){document.getElementById('photoUpload').onchange=e=>{const f=e.target.files[0];if(!f)return;const img=document.createElement('img');img.src=URL.createObjectURL(f);img.style.cssText='width:100%;border-radius:12px';document.getElementById('localPhotos').appendChild(img)}}
 }
 document.querySelectorAll('[data-app]').forEach(b=>b.addEventListener('click',()=>openApp(b.dataset.app)));
 document.getElementById('back').addEventListener('click',()=>view.classList.remove('open'));
